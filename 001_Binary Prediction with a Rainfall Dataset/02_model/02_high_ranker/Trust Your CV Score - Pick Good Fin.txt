@@ -1,0 +1,23 @@
+Trust Your CV Score - Pick Good Final Submissions!_Chris Deotte
+URL:https://www.kaggle.com/competitions/playground-series-s5e3/discussion/570819
+
+Trust Your CV Score - Pick Good Final Submissions!
+There are 24 hours left! Good luck everyone and pick good final submissions!
+
+I want to remind everyone that the public LB is unreliable in this competition. It is tempting to select final submissions with strong public LB score, but I believe in this competition that best CV score will win. Therefore I suggest that we ignore the many high scoring public LB notebooks (including my public ensemble starter notebooks)!
+
+Personally, I believe that CV scores between 0.87 and 0.91 are good. And corresponding LB scores between 0.84 to 0.88 are good.
+
+Also I believe that it is possible to overfit train data in this comp and observe inflated CV scores with complicated feature engineering and/or models. So I suggest that we keep everything simple!
+
+Good luck!
+
+==========================
+
+UPDATE: My final two selections were:
+
+CV = 0.900, Public LB = 0.857, Private = 0.90604
+CV = 0.901, Public LB = 0.867, Private = 0.90599
+Solution writeup is here
+
+
