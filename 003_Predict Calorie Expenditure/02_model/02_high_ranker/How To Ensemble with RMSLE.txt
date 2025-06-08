@@ -1,0 +1,30 @@
+How To Ensemble with RMSLE
+url:https://www.kaggle.com/competitions/playground-series-s5e5/discussion/576111
+Competition Metric is RMSLE
+Hi. When metric is MSE or RMSE then taking mean (or weighted average) is best way to ensemble. When metric is MAE then taking median is best way to ensemble, so what is the best way to ensemble when metric is RMSLE?
+
+
+
+Ensembles with RMSLE
+The metric RMSLE is the metric RMSE in the log(1+prediction) space. So perhaps the best ensemble method is to first convert predictions into log(1+prediction) space, then take a weighted average, then convert back to original space.
+
+Example
+Imagine we have N preditions in python list pred and N weights in python list weights. Then maybe the best ensemble is
+
+Transform to log(1+p) space
+(1) log_preds = [np.log1p(p) for p in preds]
+log_preds_stack = np.stack(log_preds, axis=0)
+
+Weighted Average
+(2) avg_log_preds = np.average(log_preds_stack, axis=0, weights=weights)
+
+Invert
+(3) final_preds = np.expm1(avg_log_preds)
+
+Hill Climbing and/or Ridge Ensemble
+Furthermore when using ridge ensemble or hill climbing ensemble, we can first convert all OOF into the log(1+p) space, then run ridge or hill climbing using RMSE metric. Then apply results to Test PREDS. Finally invert ENSEMBLE_PRED back to original space!
+
+Starter Code
+I publish starter notebook to perform GPU hill climbing here. The secret to maximize ensemble CV score and LB score is to make lots of diverse models. Then upload all the OOF and Test PREDs from each model to GPU hill climbing and let it work its magic! Enjoy!
+
+
